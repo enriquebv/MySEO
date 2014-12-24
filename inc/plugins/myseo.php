@@ -3,7 +3,6 @@ if(!defined("IN_MYBB")){
 die("Direct initialization of this file is not allowed.<br /><br />Please make sure IN_MYBB is defined.");}
 
 global $plugins;
-$plugins->add_hook("global_start", "myseo_lang");
 $plugins->add_hook("forumdisplay_start", "myseo_fd");
 $plugins->add_hook("index_start", "myseo_i");
 $plugins->add_hook("member_profile_start", "myseo_mp");
@@ -58,9 +57,9 @@ function myseo_info(){
 </table>
 </form>
 </center>",
-		"website" 	  		=> "",
+		"website" 	  		=> "https://github.com/BitLiberal/MySEO",
 		"author" 			=> "BitLiberal",
-		"authorsite"  		=> "",
+		"authorsite"  		=> "https://github.com/BitLiberal",
 		"version"		    => "1.0",
 		"compatibility" 	=> "18*",
 		"guid"        		=> ''
