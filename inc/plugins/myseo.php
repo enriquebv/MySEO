@@ -93,7 +93,7 @@ if($db->field_exists("myseosis", "users"))
         'name'         => 'previsualizacion',
         'title'        => $lang->previsualizacion,
         'description'  => $db->escape_string("".$lang->previsualizacion_descripcion_primera."".$lang->previsualizacion_descripcion_segunda."".$lang->previsualizacion_descripcion_tercera."
-		<br/><iframe style=\"border: 0px none; height: 150px; width: 70%;\" id=\"preview_iframe\" src=\"../pgoogle.php\"></iframe>
+		<br/><iframe style=\"border: 0px none; height: 150px; width: 70%;\" id=\"preview_iframe\" src=\"../myseo.php\"></iframe>
 		<script>
 		function fs_do_preview(response)
 		{

@@ -25,7 +25,7 @@ $l['ajustes_seonpage_descripcion'] = 'Configura tus datos para el SEO On-Page.';
 
 $l['previsualizacion'] = 'Como se vera tu foro en Google:';
 $l['previsualizacion_descripcion_primera'] = 'Tienes que ajustar la configuracion y recargar la visualizacion para ver los datos cambiados.<br/>';
-$l['previsualizacion_descripcion_segunda'] = 'Pulsa <a href=\"../pgoogle.php\" onclick=\"window.open(this.href, this.target, \'width=550,height=150\'); return false;\"><b>aqui</b></a> para abrir la visualizacion en una peque<span style="text-transform:lowecase">&#209;</span>a ventana y utiliza el boton "Recargar" para ver los datos.<br/>';
+$l['previsualizacion_descripcion_segunda'] = 'Pulsa <a href="../myseo.php" onclick="window.open(this.href, this.target, \'width=550,height=150\'); return false;"><b>aqui</b></a> para abrir la visualizacion en una peque<span style="text-transform:lowecase">&#209;</span>a ventana y utiliza el boton "Recargar" para ver los datos.<br/>';
 $l['previsualizacion_descripcion_tercera'] = 'Podras ver como al poner el titulo y descripcion demasiado grandes, estos se cortaran con unos puntos suspesivos.<br/>';
 
 $l['minidescripcion'] = 'Escribe una mini-descripcion de tu foro.';
