@@ -1,38 +1,36 @@
 <?php
-/**
- * Suite SEO-Social - Español
-**/
-
-/** NO CHANGE DE CODE HTML, ONLY THE WORDS OUT OF THE CODE **/
-
-/* THIS LANG VARIABLE CALLS THE LANG OF THE FILE OF DOCUMENTATION
-EXAMPLE: 
-$l['idioma_docs'] = 'es'; --> doc.es.html
-$l['idioma_docs'] = 'en'; --> doc.en.html
-*/
-$l['idioma_docs'] = 'es';
-/* NO CHANGE IF NO EXIST A TRANSLATION OF THE DOCUMENTATION IN YOUR LENGUAGE*/
 
 $l['aviso_instalacion_primero'] = '<b>&iexcl;Atencion!</b> Para instalar, sigue los';
 $l['aviso_instalacion_segunda'] = 'pasos de instalacion';
-$l['descripcion_suite'] = 'Crea e incrusta las configuraciones para el SEO OnPage y la integracion social, <a href="http://visualcms.es/guia-de-seo-on-page-mybb/" target="_blank">Mas Informacion</a>';
+
+$l['descripcion_suite'] = 'Crea e incrusta las configuraciones para el SEO OnPage y la integracion social, <a href="https://github.com/BitLiberal/MySEO/" target="_blank">Mas Informacion</a>';
+
 $l['boton_ajustes'] = 'Ajustes';
+
 $l['sistema_nofollow_activado'] = 'Sistema NoFollow Activado';
 $l['sistema_nofollow_noactivado_primero'] = '&iexcl;No has instalado el sistema de NoFollow!';
 $l['sistema_nofollow_noactivado_segundo'] = 'Solucionar';
-$l['actualizar'] = '&iexcl;Actualiza';
-$l['version'] = 'a la version';
-$l['actualizado'] = 'Tienes la ultima actualizacion del plugin.';
+
 $l['bien'] = 'Bien';
 $l['mal'] = 'Mal';
+
 $l['Si'] = 'Si';
 $l['No'] = 'No';
-$l['Cafe'] = '&iexcl;Invitanos a un cafe por nuestro duro trabajo!';
-$l['descarga_directa'] = 'Descargar';
-$l['aviso_flp'] = '&iexcl;Aun no has instalado el plugin <a href="#instalarflp"><b>Last/First Post Avatar</b></a>!';
 
-$l['ajustes_seonpage'] = 'Suite SEO-SOCIAL: Ajustes de SEO OnPage';
+$l['Cafe'] = '&iexcl;Invitanos a un cafe por nuestro duro trabajo!';
+
+$l['atencion'] = 'Atencion:';
+
+$l['no_desinstalar'] = 'MySEO no se desinstalara porque has elegido mantener los ajustes en la base de datos.';
+$l['no_desinstalar2'] = 'Si vas a actualizar MySEO, utiliza la opcion "Desactivar".';
+$l['no_desinstalar_desactivar'] = 'Desactivar';
+$l['no_desinstalar_cambiar'] = 'Cambiar ajustes';
+
+$l['ajustes_seonpage'] = '[Plugin MySEO] Ajustes de SEO OnPage';
 $l['ajustes_seonpage_descripcion'] = 'Configura tus datos para el SEO On-Page.';
+
+$l['eliminar_ajustes'] = 'Eliminar ajustes al desinstalar MySEO?';
+$l['eliminar_ajustes_descripcion'] = 'Bloquea la desinstalacion de MySEO. Sirve para cuando vayas a actualizar y/o reinstalar MySEO y no quieres reconfigurar todos los datos. Elige "No" para evitar perder los datos al desinstalar.';
 
 $l['previsualizacion'] = 'Como se vera tu foro en Google:';
 $l['previsualizacion_descripcion_primera'] = 'Tienes que ajustar la configuracion y recargar la visualizacion para ver los datos cambiados.<br/>';
@@ -41,15 +39,12 @@ $l['previsualizacion_descripcion_tercera'] = 'Podras ver como al poner el titulo
 
 $l['minidescripcion'] = 'Escribe una mini-descripcion de tu foro.';
 $l['minidescripcion_descripcion'] = 'Escribe una minidescripcion de tu foro, con un maximo de 65 caracteres. Este limite se puede sobrepasar si el titulo del foro es corto (los dos juntos no deben exceder los 65 caracteres para una correcta visualizacion en los buscadores)';
-$l['minidescripcion_predefinido'] = 'Mini-descripcion no muy larga.';
 
 $l['metadescripcion'] = 'Escribe la descripcion de tu foro.';
 $l['metadescripcion_descripcion'] = 'Escribe una descripcion como la que pusiste al instalar el foro. Maximo 158 caracteres.';
-$l['metadescripcion_predefinido'] = 'Descripcion de un maximo de 158 caracteres. Esta descripcion no debe sobrepasar ese limite pues Google, Yahoo, Bing y otros buscadores limitan ese espacio. Si la sobrepasas, se veran puntos suspensivos al final. Abre la previsualizacion para comprobarlo.';
 
 $l['palabrasClave'] = 'Palabras Clave';
 $l['palabrasClave_descripcion'] = 'Escribe aqui las palabras clave de la tematica de tu foro. Piensa en las palabras con las que te gustaria que te encontraran. Cada palabra separada por una coma.';
-$l['palabrasClave_predefinido'] = 'foro, mybb, comunidad';
 
 $l['google_ver'] = 'Codigo de verificacion de Google';
 $l['google_ver_descripcion'] = 'Inserta el codigo de verificacion de Google para validar tu sitio con sus herramientas. Solo el codigo:';
@@ -76,8 +71,8 @@ $l['Nunca'] = 'Nunca';
 $l['smPriority'] = 'Prioridad de los temas y foros.';
 $l['smPriority_descripcion'] = 'Cuando envias los sitemaps, esta bien decirle a los buscadores que URL son mas importantes.<br/>Esto es importante para que no se indexen todas las URL de forma generica, y para darle mas importancia a otras URL. Se recomiendan poner un valor nunca mayor al 80%.';
 
-$l['seopvcmssm'] = 'Suite SEO-SOCIAL: Social Media e Integracion Social';
-$l['seopvcmssm_descripcion'] = 'Configura tus datos para mejorar tu interaccion con las redes sociales.';
+$l['myseosm'] = '[Plugin MySEO] Social Media e Integracion Social';
+$l['myseosm_descripcion'] = 'Configura tus datos para mejorar tu interaccion con las redes sociales.';
 
 $l['pagina_Facebook'] = 'URL de tu pagina de Facebook';
 $l['pagina_Facebook_descripcion'] = 'Incluye la url de tu pagina de Facebook al foro. (Si no tienes, simplemente dejar vacio)';
@@ -87,12 +82,6 @@ $l['urlLogoFB_descripcion'] = 'La url de una imagen, a ser posible, cuadrada, re
 
 $l['sitioTwitter'] = 'Twitter de tu foro';
 $l['sitioTwitter_descripcion'] = 'Inserta el Twitter de tu foro.';
-
-$l['eleccionAutor'] = '¿Quieres la meta de autor de Twitter?';
-$l['eleccionAutor_descripcion'] = 'Esta meta mostrara el autor mas abajo añadido a Twitter para declararle como autor. Usa "No" para ocultar esa informacion.';
-
-$l['autorTwitter'] = 'Incluye tu perfil de Twitter como creador';
-$l['autorTwitter_descripcion'] = 'Aqui debera ir con la arroba el usuario de tu Twitter como creador. Dejar vacio si en la opcion anterio has seleccionado "No".';
 
 $l['urlLogoTW'] = 'URL de logo para Twitter';
 $l['urlLogoTW_descripcion'] = 'La url de una imagen, a ser posible, cuadrada, maximo 200px x 200px';
