@@ -92,8 +92,7 @@ function myseo_install()
 {
     global $mybb, $db, $lang;
     $url_foro = $mybb->settings['bburl'];
-	
-	
+
     // Grupo de Ajuste de SEO OnPage
     $settings_group = array(
         'gid' => 'NULL',
@@ -429,11 +428,10 @@ function myseo_install()
 function myseo_is_installed()
 {
     global $db;
-    
-    if ($db->field_exists("myseosis", "users")) {
-        return true;
+    $query = $db->simple_select('settinggroups', '*', "name='myseo'");
+    if ($db->num_rows($query)) {
+       return true;
     }
-    
     return false;
 }
 
@@ -473,12 +471,12 @@ function myseo_deactivate()
 function myseo_uninstall()
 {
     global $db, $mybb;
-    
+    	
 	// Comprobar si el usuario ha elegido bloquear la desinstalacion
     if ($mybb->settings['eliminar_ajustes'] == 1) {
 		
 		// Elimina todos los ajustes
-        $db->delete_query('settings', "name IN ('eliminar_ajustes', 'meta_descripcion','palabrasClave','urlLogoFB','sitioTwitter','google_ver','bingYahoo_ver','pagina_Google','pagina_Facebook','eleccionAutor','alexa_ver','perfil_pinterest','previsualizacion','idAnalytics')");
+        $db->delete_query('settings', "name IN ('urlLogoTW', 'smPriority', 'smChangeFreq', 'IndexFollow_usuarios', 'miniDescripcion', 'eliminar_ajustes', 'meta_descripcion','palabrasClave','urlLogoFB','sitioTwitter','google_ver','bingYahoo_ver','pagina_Google','pagina_Facebook','eleccionAutor','alexa_ver','perfil_pinterest','previsualizacion','idAnalytics')");
         
 		// Elimina todos los grupos de ajustes
 		$db->delete_query('settinggroups', "name = 'myseops'");
