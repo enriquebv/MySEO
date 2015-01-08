@@ -68,8 +68,13 @@ $l['Mensual'] = 'Mensual';
 $l['Anual'] = 'Anual';
 $l['Nunca'] = 'Nunca';
 
-$l['smPriority'] = 'Prioridad de los temas y foros.';
-$l['smPriority_descripcion'] = 'Cuando envias los sitemaps, esta bien decirle a los buscadores que URL son mas importantes.<br/>Esto es importante para que no se indexen todas las URL de forma generica, y para darle mas importancia a otras URL. Se recomiendan poner un valor nunca mayor al 80%.';
+$l['smPriority'] = 'Prioridad en los sitemaps.';
+$l['smPriority_descripcion'] = 'Cuando envias los sitemaps, esta bien decirle a los buscadores que URL son mas importantes.<br/>Esto es importante para que no se indexen todas las URL de forma generica, y para darle mas importancia a otras URL, (como la URL principal, la del portal, etc). Se recomiendan poner un valor nunca mayor al 80%.';
+
+$l['extras_googleseo_enlace'] = 'Requiere los archivos extras de Google SEO.';
+
+$l['idAnalytics'] = 'ID de Analytics';
+$l['idAnalytics_descripcion'] = 'Escribe <a target="_blank" href=\"https://support.google.com/analytics/answer/1032385\">la ID de tu cuenta de Google Analytics</a> para poder utilizar su sistema en tu foro. Solo la ID:';
 
 $l['myseosm'] = '[Plugin MySEO] Social Media e Integracion Social';
 $l['myseosm_descripcion'] = 'Configura tus datos para mejorar tu interaccion con las redes sociales.';

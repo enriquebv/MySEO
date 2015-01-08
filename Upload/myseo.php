@@ -10,7 +10,7 @@ $metadescripcion = $settings['meta_descripcion'];
 $url_foro = $settings['bburl'];
 
 // Si los campos estan vacios (suele pasar en la primera instalacion) se añaden unos predeterminados
-if ($settings['bblanguage'] == "esspanol"){
+if ($settings['bblanguage'] == "espanol"){
 if (strlen($mini_descripcion) == 0){$mini_descripcion = "Mini descripcion del foro, maximo de 65 caracteres";}
 if (strlen($metadescripcion) == 0){$metadescripcion = "Descripcion con una extension de 158 caracteres, que solo se mostrara en la URL principal de tu foro. Intenta que sea lo maximo descriptiva posible.";}
 }else{

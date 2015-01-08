@@ -58,7 +58,7 @@ Abre el archivo **/inc/class_parser.php** y busca este codigo:
 Si vas ahora a tu ACP > Plugins, deberias ver la palabra "Activado" en la descripcion del plugin. **¡Listo!**
 
 #### Instalar extras para el plugin Google SEO
-(Si no quieres instalar estas mejoras, **simplemente ignora estas instrucciones**).
+(Si no quieres instalar estas mejoras, **simplemente ignora estas instrucciones**).  
 MySEO trae unas configuraciones de serie (sera optativo en un futuro, aunque tenerlo no afecta en nada al funcionamiento del foro o del plugin) para mejorar y pulir el uso del plugin [Google SEO](http://mods.mybb.com/view/google-seo).
 Las mejoras son:  
  * Añadir el frecuencia de cambio (una sugerencia a Google para que revisite tu foro para ver el nuevo contenido, muy indicado)
