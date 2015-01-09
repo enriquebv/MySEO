@@ -19,12 +19,6 @@ $l['No'] = 'No';
 
 $l['Cafe'] = '&iexcl;Invitanos a un cafe por nuestro duro trabajo!';
 
-$l['atencion'] = 'Atencion:';
-
-$l['no_desinstalar'] = 'MySEO no se desinstalara porque has elegido mantener los ajustes en la base de datos.';
-$l['no_desinstalar2'] = 'Si vas a actualizar MySEO, utiliza la opcion "Desactivar".';
-$l['no_desinstalar_desactivar'] = 'Desactivar';
-$l['no_desinstalar_cambiar'] = 'Cambiar ajustes';
 
 $l['ajustes_seonpage'] = '[Plugin MySEO] Ajustes de SEO OnPage';
 $l['ajustes_seonpage_descripcion'] = 'Configura tus datos para el SEO On-Page.';
@@ -35,7 +29,7 @@ $l['eliminar_ajustes_descripcion'] = 'Bloquea la desinstalacion de MySEO. Sirve 
 $l['previsualizacion'] = 'Como se vera tu foro en Google:';
 $l['previsualizacion_descripcion_primera'] = 'Tienes que ajustar la configuracion y recargar la visualizacion para ver los datos cambiados.<br/>';
 $l['previsualizacion_descripcion_segunda'] = 'Pulsa <a href="../myseo.php" onclick="window.open(this.href, this.target, \'width=550,height=150\'); return false;"><b>aqui</b></a> para abrir la visualizacion en una peque<span style="text-transform:lowecase">&#209;</span>a ventana y utiliza el boton "Recargar" para ver los datos.<br/>';
-$l['previsualizacion_descripcion_tercera'] = 'Podras ver como al poner el titulo y descripcion demasiado grandes, estos se cortaran con unos puntos suspesivos.<br/>';
+$l['previsualizacion_descripcion_tercera'] = 'Podras ver como al poner el titulo y descripcion demasiado grandes, estos se cortaran con unos puntos suspensivos.<br/>';
 
 $l['minidescripcion'] = 'Escribe una mini-descripcion de tu foro.';
 $l['minidescripcion_descripcion'] = 'Escribe una minidescripcion de tu foro, con un maximo de 65 caracteres. Este limite se puede sobrepasar si el titulo del foro es corto (los dos juntos no deben exceder los 65 caracteres para una correcta visualizacion en los buscadores)';

@@ -13,9 +13,11 @@ $url_foro = $settings['bburl'];
 if ($settings['bblanguage'] == "espanol"){
 if (strlen($mini_descripcion) == 0){$mini_descripcion = "Mini descripcion del foro, maximo de 65 caracteres";}
 if (strlen($metadescripcion) == 0){$metadescripcion = "Descripcion con una extension de 158 caracteres, que solo se mostrara en la URL principal de tu foro. Intenta que sea lo maximo descriptiva posible.";}
+$boton = "Recargar";
 }else{
 if (strlen($mini_descripcion) == 0){$mini_descripcion = "Small description of forum, maximum 65 characters";}
 if (strlen($metadescripcion) == 0){$metadescripcion = "Description with an maximum length of 158 characters, which only will be displayed with the main URL of your forum in Google. Try to be as descriptive as possible maximum.";}
+$boton = "Refresh";
 }
 
 // El titulo formateado
@@ -43,7 +45,7 @@ echo "<html>
 </style>
 </head>
 <body>
-<input type=\"submit\" class=\"button\" onclick='location.reload(true); return false;' value=\"Recargar\">
+<input type=\"submit\" class=\"button\" onclick='location.reload(true); return false;' value=\"$boton\">
 <div style=\"background:#FFF;padding:5px;box-shadow:0px 0px 10px -4px #000;\">
 <span class=\"texto\" style=\"color:#1A0DAB;font-size:16px;\">$titulo_transformado</span><br/>
 <span class=\"texto\" style=\"color:#006621;font-size:12px;\">$url_foro</span><br/>
