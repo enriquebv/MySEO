@@ -5,7 +5,7 @@
 #### Index:
  1. [Description](#description)
  2. [How to install MySEO](#how-to-install-myseo)
-    * [Install NoFollow System](#instalar-sistema-nofollow)
+    * [Install NoFollow System](#install-nofollow-system)
     * [Optimize code of templates](#optimize-code-of-the-templates)
  3. [How to uninstall MySEO](#how-to-unistall-myseo)
     * [Remove modified code of templates.](#remove-modified-code-of-the-templates)
@@ -73,6 +73,17 @@ So that no confusion in your templates (eg title codes that already brings MyBB,
 	* Remove code tags `<title> </title>` and their content (eg: `<title>{$thread['subject']}</title>`).
 * In template *member_profile*:
 	* Remove code tags `<title> </title>` and their content (eg: `<title>{$mybb->settings['bbname']} - {$lang->profile}</title>`).
+
+#### Install NoFollow System
+(If you do not want to install these improvements, simply ignores these **instructions**).
+MySEO brings standard configurations to improve and refine the use of [Google SEO Plugin](http://mods.mybb.com/view/google-seo).  
+The improvements are:
+ * Add the frequency change to sitemaps (a suggestion to Google to revisit your forum to see the new content, very well suited)
+ * Add the URL's priority to sitemaps, **almost obligatory** by [various reasons](https://github.com/BitLiberal/MySEO/wiki/En-construccion---Coming-soon#under-construction)
+ * Remove NoFollow system of Google SEO plugin (to not affect the MySEO the plugin).
+
+To make these extras work, you must replace certain files from Google SEO, for that you need [download the **[Extras] Google Seo** folder](https://github.com/BitLiberal/MySEO/tree/master/%5BExtras%5D%20Google%20SEO), copy and paste files into the root folder of your forum MyBB. **Ready!**
+
 
 ## How to uninstall MySEO
 
