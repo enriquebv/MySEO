@@ -508,7 +508,9 @@ function myseo_mp()
 {
     global $db, $mybb, $templates, $seo_member;
     
+	if ($mybb->settings['IndexFollow_usuarios']){
     eval("\$seo_member = \"".$templates->get("seo_member")."\";");
+	}
 }
 
 // Para la plantilla global seo_footer
