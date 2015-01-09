@@ -1,4 +1,6 @@
-# MySEO - SEO OnPage en tu foro MyBB
+# MySEO - SEO OnPage en tu foro MyBB  
+
+¿Are you searching for **english instructions**? [Click here](https://github.com/BitLiberal/MySEO/blob/master/README.es.md)  
 
 #### Indice:
  1. [Descripcion](#descripcion)
@@ -75,7 +77,7 @@ Las mejoras son:
  * Añadir la prioridad a las URL's de temas, foros, anuncios, etc, **casi obligado** por [diversos motivos](https://github.com/BitLiberal/MySEO/wiki/En-construccion---Coming-soon#en-construccion)
  * Inutilizado el sistema de NoFollow de Google SEO (para que no afecte al del plugin MySEO). 
  * **Para los foros en español**, una traduccion del 404 de Google SEO.  
-Para hacer que estos extras funcionen, se deben sustituir ciertos archivos de Google SEO, para eso debes [descargar la carpeta *[Extras] Google Seo*](https://github.com/BitLiberal/MySEO/tree/master/%5BExtras%5D%20Google%20SEO/inc), copiar los archivos y pegarlos en la carpeta raiz de tu foro MyBB. **¡Listo!**
+Para hacer que estos extras funcionen, se deben sustituir ciertos archivos de Google SEO, para eso debes [descargar la carpeta *[Extras] Google Seo*](https://github.com/BitLiberal/MySEO/tree/master/%5BExtras%5D%20Google%20SEO), copiar los archivos y pegarlos en la carpeta raiz de tu foro MyBB. **¡Listo!**
 
 
 #### Optimiza el codigo de las plantillas
