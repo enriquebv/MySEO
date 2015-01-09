@@ -24,6 +24,11 @@ Por ejemplo, añadiendo meta keywords, meta descripciones, titles mejorados, etc
 ## Como instalar MySEO
 
 Instalarlo es muy facil, solo tienes que descargar la ultima version (desde [Github](https://github.com/BitLiberal/MySEO)) y subir el contenido de la carpeta "Upload" a la carpeta raiz de tu foro (la carpeta principal, donde se encuentra *index.php*).  
+**ATENCION:**  
+Debes tener ciertos codigos en las plantillas para que se instale correctamente. Si tu plantilla es de serie no te preocupes, pero si no es asi:
+* Ve a la plantilla *headerinclude* y busca `{$stylesheets}`. Si no lo encuentras, añadelo tu mismo.
+* Ve a la plantilla *footer* y busca `{$task_image}`. Si no lo encuentras, añadelo tu mismo.
+
 Listo, ahora solo tienes que instalar el sistema NoFollow y si tienes el plugin Google SEO, sus extras:
 
 #### Instalar sistema NoFollow
@@ -88,7 +93,7 @@ Para que no existan confusiones en tus plantillas (por ejemplo, los codigos que 
 
 #### Borrar codigo modificado de las plantillas
 Para su correcta identificacion, TODOS los codigos introducidos por el plugin vienen rodeados de el comentario  
-`html <!-- Site optimized with MySEO 1.0 --> `, para borrar los codigos (ya sea al desinstalar como explica [aqui](#aviso), o modificar los codigos) solo tienes que acceder a las siguientes plantillas y borrarlos, incluidos los comentarios html:
+`<!-- Site optimized with MySEO 1.0 --> `, para borrar los codigos (ya sea al desinstalar como explica [aqui](#aviso), o modificar los codigos) solo tienes que acceder a las siguientes plantillas y borrarlos, incluidos los comentarios html:
 * forumdisplay
 * footer
 * index
