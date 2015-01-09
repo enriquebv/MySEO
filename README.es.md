@@ -23,7 +23,12 @@ Por ejemplo, añadiendo meta keywords, meta descripciones, titles mejorados, etc
 
 ## Como instalar MySEO
 
+Instalarlo es muy facil, solo tienes que descargar la ultima version (desde [Github](https://github.com/BitLiberal/MySEO)) y subir el contenido de la carpeta "Upload" a la carpeta raiz de tu foro (la carpeta principal, donde se encuentra *index.php*).  
+Listo, ahora solo tienes que instalar el sistema NoFollow y si tienes el plugin Google SEO, sus extras:
+
 #### Instalar sistema NoFollow
+Es posible que te hayas preguntado como hacer para que las hordas de spammers dejen de aprovecharse de tu foro publicando enlaces en los posts, firmas, etc, para que Google los indexe.  
+Existen muchas formas de asegurar ese punto debil de MyBB, pero una de las mas sencillas, es aplicar el atributo [rel="nofollow"](http://es.wikipedia.org/wiki/Nofollow) a todo enlace externo.  
 Para instalar el sistema NoFollow tendras que editar un archivo del core de MyBB:
 
 Abre el archivo **/inc/class_parser.php** y busca este codigo:
@@ -65,12 +70,19 @@ Las mejoras son:
  * Añadir la prioridad a las URL's de temas, foros, anuncios, etc, **casi obligado** por [diversos motivos](https://github.com/BitLiberal/MySEO/wiki/En-construccion---Coming-soon#en-construccion)
  * Inutilizado el sistema de NoFollow de Google SEO (para que no afecte al del plugin MySEO). 
  * **Para los foros en español**, una traduccion del 404 de Google SEO.  
-Para hacer que estos extras funcionen, debes ir a la carpeta *[Extras] Google Seo*, copiar los archivos y pegarlos en la carpeta raiz de tu foro MyBB. **¡Listo!**
+Para hacer que estos extras funcionen, se deben sustituir ciertos archivos de Google SEO, para eso debes [descargar la carpeta *[Extras] Google Seo*](https://github.com/BitLiberal/MySEO/tree/master/%5BExtras%5D%20Google%20SEO/inc), copiar los archivos y pegarlos en la carpeta raiz de tu foro MyBB. **¡Listo!**
 
 
 #### Optimiza el codigo de las plantillas
-Para que no existan confusiones en tus plantillas (los codigos title ya los trae MyBB de serie, y pueden haber duplicaciones), sigue estos pasos:  
-En construccion
+Para que no existan confusiones en tus plantillas (por ejemplo, los codigos que ya trae MyBB de serie, si no se eliminan pueden haber duplicaciones), sigue estos pasos:  
+* En plantilla *index*:
+	* Borrar etiquetas `<title> </title>` y su contenido (ej: `<title>{$mybb->settings['bbname']}</title>`).
+* En plantilla *forumdisplay*:
+    * Borrar etiquetas `<title> </title>` y su contenido (ej: `<title>{$mybb->settings['bbname']} - {$foruminfo['name']}</title>`).
+* En plantilla *showthread*:
+	* Borrar etiquetas `<title> </title>` y su contenido (ej: `<title>{$thread['subject']}</title>`).
+* En plantilla *member_profile*:
+	* Borrar etiquetas `<title> </title>` y su contenido (ej: `<title>{$mybb->settings['bbname']} - {$lang->profile}</title>`).
 
 ## Como desinstalar MySEO
 
