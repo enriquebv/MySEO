@@ -82,7 +82,7 @@ The improvements are:
  * Add the URL's priority to sitemaps, **almost obligatory** by [various reasons](https://github.com/BitLiberal/MySEO/wiki/En-construccion---Coming-soon#under-construction)
  * Remove NoFollow system of Google SEO plugin (to not affect the MySEO the plugin).
 
-To make these extras work, you must replace certain files from Google SEO, for that you need [download the **[Extras] Google Seo** folder](https://github.com/BitLiberal/MySEO/tree/master/%5BExtras%5D%20Google%20SEO), copy and paste files into the root folder of your forum MyBB. **Ready!**
+To make these extras work, you must replace certain files from Google SEO, for that you need [download the **[Extras] Google Seo** folder](https://github.com/BitLiberal/MySEO/releases/download/v1.0/Extras.Google.SEO.rar), copy and paste files into the root folder of your forum MyBB. **Ready!**
 
 
 ## How to uninstall MySEO

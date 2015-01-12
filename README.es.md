@@ -78,7 +78,7 @@ Las mejoras son:
  * Inutilizado el sistema de NoFollow de Google SEO (para que no afecte al del plugin MySEO). 
  * **Para los foros en español**, una traduccion del 404 de Google SEO.  
 
-Para hacer que estos extras funcionen, se deben sustituir ciertos archivos de Google SEO, para eso debes [descargar la carpeta *[Extras] Google Seo*](https://github.com/BitLiberal/MySEO/tree/master/%5BExtras%5D%20Google%20SEO), copiar los archivos y pegarlos en la carpeta raiz de tu foro MyBB. **¡Listo!**
+Para hacer que estos extras funcionen, se deben sustituir ciertos archivos de Google SEO, para eso debes [descargar la carpeta *[Extras] Google Seo*](https://github.com/BitLiberal/MySEO/releases/download/v1.0/Extras.Google.SEO.rar), copiar los archivos y pegarlos en la carpeta raiz de tu foro MyBB. **¡Listo!**
 
 
 #### Optimiza el codigo de las plantillas
