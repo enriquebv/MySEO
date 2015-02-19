@@ -7,7 +7,7 @@
 **Files to add:**
 	* /inc/languages/espanol/googleseo.lang.php
 
-Only upload the content of "Upload" in the your root folder and replace the files.
+Only upload the content of "Upload" in root folder of MyBB and replace the files.
 
 #### Español
 **Archivos que se reemplazan:**
