@@ -478,7 +478,6 @@ function myseo_uninstall()
         $db->delete_query('settings', "name IN ('urlLogoTW', 'smPriority', 'smChangeFreq', 'IndexFollow_usuarios', 'miniDescripcion', 'eliminar_ajustes', 'meta_descripcion','palabrasClave','urlLogoFB','sitioTwitter','google_ver','bingYahoo_ver','pagina_Google','pagina_Facebook','eleccionAutor','alexa_ver','perfil_pinterest','previsualizacion','idAnalytics')");
         
 		// Elimina todos los grupos de ajustes
-		$db->delete_query('settinggroups', "name = 'myseops'");
         $db->delete_query('settinggroups', "name = 'myseo'");
 		$db->delete_query('settinggroups', "name = 'myseosm'");
         
