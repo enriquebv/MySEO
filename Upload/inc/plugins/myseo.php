@@ -547,4 +547,4 @@ function myseo_nofollow($message){
 		$message);
 	}
 }
-?> 
+?>
