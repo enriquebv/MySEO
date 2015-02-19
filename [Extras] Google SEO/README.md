@@ -9,7 +9,7 @@
 
 Only upload the content of "Upload" in the your root folder and replace the files.
 
-#### Español
+#### EspaÃ±ol
 **Archivos que se reemplazan:**
 	* /inc/plugins/google_seo/sitemap.php
 
