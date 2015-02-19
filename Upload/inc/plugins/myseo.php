@@ -17,9 +17,9 @@ function myseo_lang(){
     $lang->load("myseo");
 }
 
-global $mybb, $bb_url, $lang_docs;
-$bb_url = $mybb->settings;
-	
+//Variables globales a utilizar en MySEO
+global $mybb, $lang_docs;
+
 if ($mybb->settings['bblanguage'] == "espanol") {
 	$lang_docs = "es";
 }else{
@@ -30,7 +30,7 @@ if ($mybb->settings['bblanguage'] == "espanol") {
 function myseo_info()
 {
     // Crear variables a utilizar
-    global $mybb, $plugins, $lang, $db;
+    global $mybb, $plugins, $lang, $db, $lang_docs;
     
 	myseo_lang();
     
@@ -80,7 +80,7 @@ function myseo_info()
 // Procesos de instalacion
 function myseo_install()
 {
-    global $mybb, $db, $lang;
+    global $mybb, $db, $lang, $lang_docs;
 
     // Grupo de ajustes para el social media
     $settings_group = array(
@@ -530,16 +530,16 @@ function myseo_ft()
 function myseo_nofollow($message){
 	global $mybb;
 	if($mybb->settings['activarNofollow'] == 1){
-		$bburl = str_replace(array("http://", "https://"), '', $mybb->settings['bburl']);
+		$bburl_ignore = str_replace(array("http://", "https://"), '', $mybb->settings['bburl']);
 		
 		if($mybb->settings['quitarNofollow']){	
 			$ignore = $mybb->settings['quitarNofollow'];
 			$ignore = str_replace(array("\r\n", "\n", "\r"), ',', $ignore);
 			$ignore = my_strtolower($ignore);	
 			$ignore_list = explode(',', $ignore);
-			array_push($ignore_list, $bburl);
+			array_push($ignore_list, $bburl_ignore);
 		}else{
-			$ignore_list = array($bburl);
+			$ignore_list = array($bburl_ignore);
 		}
 		
 		return preg_replace(
