@@ -13,7 +13,7 @@ Only upload the content of "Upload" in the your root folder and replace the file
 **Archivos que se reemplazan:**
 	* /inc/plugins/google_seo/sitemap.php
 
-**Archivos que se añaden:**
+**Archivos que se aÃ±aden:**
 	* /inc/languages/espanol/googleseo.lang.php
 	
 Solo tienes que subir los archivos a la carpeta principal de tu instalacion de MyBB.
