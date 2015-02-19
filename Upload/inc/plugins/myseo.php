@@ -71,7 +71,7 @@ function myseo_info()
         "website" => "https://github.com/BitLiberal/MySEO",
         "author" => "BitLiberal",
         "authorsite" => "https://github.com/BitLiberal",
-        "version" => "1.0",
+        "version" => "1.1",
         "compatibility" => "18*",
         "guid" => ''
     );
