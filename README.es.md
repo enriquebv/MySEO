@@ -1,6 +1,6 @@
 # MySEO - SEO OnPage en tu foro MyBB  
 
-¿Are you searching for **english instructions**? [Click here](https://github.com/BitLiberal/MySEO/blob/master/README.es.md)  
+Are you searching for **english instructions**? [Click here](https://github.com/BitLiberal/MySEO/blob/master/README.es.md)  
 
 #### Indice:
  1. [Descripcion](#descripcion)
@@ -26,27 +26,18 @@ Por ejemplo, añadiendo meta keywords, meta descripciones, titles mejorados, etc
 ## Como instalar MySEO
 
 Instalarlo es muy facil, solo tienes que descargar la ultima version (desde [Github](https://github.com/BitLiberal/MySEO)) y subir el contenido de la carpeta "Upload" a la carpeta raiz de tu foro (la carpeta principal, donde se encuentra *index.php*).  
-**ATENCION:**  
+**Atencion:**  
 Debes tener ciertos codigos en las plantillas para que se instale correctamente. Si tu plantilla es de serie no te preocupes, pero si no es asi:
 * Ve a la plantilla *headerinclude* y busca `{$stylesheets}`. Si no lo encuentras, añadelo tu mismo.
 * Ve a la plantilla *footer* y busca `{$task_image}`. Si no lo encuentras, añadelo tu mismo.
 
 Listo, ahora solo tienes que instalar el sistema NoFollow y si tienes el plugin Google SEO, sus extras:
 
-#### Instalar sistema NoFollow
-Es posible que te hayas preguntado como hacer para que las hordas de spammers dejen de aprovecharse de tu foro publicando enlaces en los posts, firmas, etc, para que Google los indexe.  
-Existen muchas formas de asegurar ese punto debil de MyBB, pero una de las mas sencillas, es aplicar el atributo [rel="nofollow"](http://es.wikipedia.org/wiki/Nofollow) a todo enlace externo.  
-Para instalar el sistema NoFollow tendras que editar un archivo del core de MyBB:
-
-Abre el archivo **/inc/class_parser.php** y busca este codigo:
-  ````php
-    $name = preg_replace("#&amp;\#([0-9]+);#si", "&#$1;", $name); // Fix & but allow unicode
-    $link = "<a href=\"$fullurl\" target=\"_blank\"{$nofollow}>$name</a>";
-    return $link;
- ````
- 
- Reemplazalo por este:
-````php
+#### Quitar cambios en el core
+**Esto solo es necesario si actualizas de la versión 1.0**.  
+En anteriores versiones de MySEO, para aplicar el sistema NoFollow se necesitaba editar manualmente el archivo *class_parser.php* para que funcionara.  
+Ahora ya no es necesario. Para eliminar esos cambios, busca este codigo en */inc/class_parser.php* :
+ ````php
 /* MOD MySEO
     Original code:
     $name = preg_replace("#&amp;\#([0-9]+);#si", "&#$1;", $name); // Fix & but allow unicode
@@ -67,7 +58,15 @@ Abre el archivo **/inc/class_parser.php** y busca este codigo:
             }
     /* MOD MySEO */
 ````
-Si vas ahora a tu ACP > Plugins, deberias ver la palabra "Activado" en la descripcion del plugin. **¡Listo!**
+ 
+Y reemplazalo por este:
+ ````php
+    $name = preg_replace("#&amp;\#([0-9]+);#si", "&#$1;", $name); // Fix & but allow unicode
+    $link = "<a href=\"$fullurl\" target=\"_blank\"{$nofollow}>$name</a>";
+    return $link;
+ ````
+
+ Y listo.
 
 #### Instalar extras para el plugin Google SEO
 (Si no quieres instalar estas mejoras, **simplemente ignora estas instrucciones**).  
@@ -78,7 +77,7 @@ Las mejoras son:
  * Inutilizado el sistema de NoFollow de Google SEO (para que no afecte al del plugin MySEO). 
  * **Para los foros en español**, una traduccion del 404 de Google SEO.  
 
-Para hacer que estos extras funcionen, se deben sustituir ciertos archivos de Google SEO, para eso debes [descargar la carpeta *[Extras] Google Seo*](https://github.com/BitLiberal/MySEO/releases/download/v1.0/Extras.Google.SEO.rar), copiar los archivos y pegarlos en la carpeta raiz de tu foro MyBB. **¡Listo!**
+Para hacer que estos extras funcionen, se deben sustituir ciertos archivos de Google SEO, para eso debes [descargar la carpeta *Extras Google Seo*](https://github.com/BitLiberal/MySEO/releases/download/v1.0/Extras.Google.SEO.rar), copiar los archivos y pegarlos en la carpeta raiz de tu foro MyBB. **¡Listo!**
 
 
 #### Optimiza el codigo de las plantillas
@@ -97,11 +96,11 @@ Para que no existan confusiones en tus plantillas (por ejemplo, los codigos que 
 #### Borrar codigo modificado de las plantillas
 Para su correcta identificacion, TODOS los codigos introducidos por el plugin vienen rodeados de el comentario  
 `<!-- Site optimized with MySEO 1.0 --> `, para borrar los codigos (ya sea al desinstalar como explica [aqui](#aviso), o modificar los codigos) solo tienes que acceder a las siguientes plantillas y borrarlos, incluidos los comentarios html:
-* forumdisplay
-* footer
-* index
-* headerinclude
-* member_profile
+	* forumdisplay
+	* footer
+	* index
+	* headerinclude
+	* member_profile
 
 
 #### Aviso

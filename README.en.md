@@ -5,7 +5,7 @@
 #### Index:
  1. [Description](#description)
  2. [How to install MySEO](#how-to-install-myseo)
-    * [Install NoFollow System](#install-nofollow-system)
+    * [Install extras for Google SEO plugin](#install-extras-for-google-seo-plugin)
     * [Optimize code of templates](#optimize-code-of-the-templates)
  3. [How to uninstall MySEO](#how-to-unistall-myseo)
     * [Remove modified code of templates.](#remove-modified-code-of-the-templates)
@@ -26,19 +26,11 @@ For example, adding meta keywords, meta descriptions, best titles, etc.
 
 ## How to install MySEO
 
-#### Install NoFollow System
-You might have wondered how to make the hordes of spammers stop taking profit of your forum posting links in posts, signatures, etc.  
-There are many ways to ensure that weak point of MyBB, but one of the simplest is to apply the attribute [rel = "nofollow"](http://es.wikipedia.org/wiki/Nofollow) in any external link.  
-To install the NoFollow system you'll have to edit MyBB core:
-
-Open **/inc/class_parser.php** y search this code:
-  ````php
-    $name = preg_replace("#&amp;\#([0-9]+);#si", "&#$1;", $name); // Fix & but allow unicode
-    $link = "<a href=\"$fullurl\" target=\"_blank\"{$nofollow}>$name</a>";
-    return $link;
- ````
- 
-Replace it by this:
+#### Erase core edits
+**This is only necessary if you upgrade from version 1.0**.  
+En anteriores versiones de MySEO, para aplicar el sistema NoFollow se necesitaba editar manualmente el archivo *class_parser.php* para que funcionara.  
+In previous versions of MySEO, to implement the NoFollow system is needed to manually edit core file the file *class_parser.php* to make it work. Now it is no longer necessary. 
+To remove these changes, find this code in */inc/class_parser.php* :  
 ````php
 /* MOD MySEO
     Original code:
@@ -60,6 +52,15 @@ Replace it by this:
             }
     /* MOD MySEO */
 ````
+ 
+Replace it by this:
+  ````php
+    $name = preg_replace("#&amp;\#([0-9]+);#si", "&#$1;", $name); // Fix & but allow unicode
+    $link = "<a href=\"$fullurl\" target=\"_blank\"{$nofollow}>$name</a>";
+    return $link;
+ ````
+ 
+
 If you go to your ACP > Plugins, you should see the word "Activated" in the plugin description.
 
 
@@ -74,7 +75,7 @@ So that no confusion in your templates (eg title codes that already brings MyBB,
 * In template *member_profile*:
 	* Remove code tags `<title> </title>` and their content (eg: `<title>{$mybb->settings['bbname']} - {$lang->profile}</title>`).
 
-#### Install NoFollow System
+#### Install extras for Google SEO plugin
 (If you do not want to install these improvements, simply ignores these **instructions**).
 MySEO brings standard configurations to improve and refine the use of [Google SEO Plugin](http://mods.mybb.com/view/google-seo).  
 The improvements are:
@@ -82,7 +83,7 @@ The improvements are:
  * Add the URL's priority to sitemaps, **almost obligatory** by [various reasons](https://github.com/BitLiberal/MySEO/wiki/En-construccion---Coming-soon#under-construction)
  * Remove NoFollow system of Google SEO plugin (to not affect the MySEO the plugin).
 
-To make these extras work, you must replace certain files from Google SEO, for that you need [download the **[Extras] Google Seo** folder](https://github.com/BitLiberal/MySEO/releases/download/v1.0/Extras.Google.SEO.rar), copy and paste files into the root folder of your forum MyBB. **Ready!**
+To make these extras work, you must replace certain files from Google SEO, for that you need [download the **Extras Google Seo** folder](https://github.com/BitLiberal/MySEO/releases/download/v1.0/Extras.Google.SEO.rar), copy and paste files into the root folder of your forum MyBB. **Ready!**
 
 
 ## How to uninstall MySEO

@@ -64,7 +64,13 @@ $l['smPriority_descripcion'] = 'When you send sitemaps, okay tell search engines
 $l['extras_googleseo_enlace'] = 'Requires extra files of Google SEO plugin.';
 
 $l['idAnalytics'] = 'Analytics ID';
-$l['idAnalytics_descripcion'] = 'Paste <a target="_blank" href=\"https://support.google.com/analytics/answer/1032385\">the ID of your Google Analytics</a> to use their system in your forum. Only the ID:';
+$l['idAnalytics_descripcion'] = 'Paste <a target="_blank" href=\"https://support.google.com/analytics/answer/1032385\">the ID of your Google Analytics</a> to use their system in your forum. <b>Only the ID</b>.';
+
+$l['activarNofollow'] = 'Enable rel="nofollow" for external links?';
+$l['activarNofollow_descripcion'] = 'Enable <b>rel="nofollow"</b> for external links, preventing potential spammers users want to place links in posts to other websites, as search engines will not follow those links. <br/> Basically, Google not nofollow and/or include links specified in his index. <br/> Google and other search engines what interact with URLs posted by users with illegal and/or morally dubious content (casinos, viagra, etc) can be detrimental to your SEO. <br/><a target="_blank" href="https://support.google.com/webmasters/answer/96569?hl=en">Read More</a>';
+
+$l['quitarNofollow'] = 'Filter NoFollow URLs';
+$l['quitarNofollow_descripcion'] = 'If you have activated <i>rel="nofollow"</i>, probably you want allow a limited URLs to be followed by search engines when the crawlers visits your forum. It has been discovered that some outgoing URLs (as with links to <i> Wikipedia.org</i>) may be beneficial for your SEO and positioning.<br/> <b>One URL per line, without http:// or https://.</b>';
 
 $l['myseosm'] = '[Plugin MySEO] Social Media and Social Integration';
 $l['myseosm_descripcion'] = 'Configure your data to improve your interaction with social networks.';

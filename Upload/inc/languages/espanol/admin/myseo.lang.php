@@ -19,6 +19,12 @@ $l['No'] = 'No';
 
 $l['Cafe'] = '&iexcl;Invitanos a un cafe por nuestro duro trabajo!';
 
+$l['atencion'] = 'Atencion:';
+
+$l['no_desinstalar'] = 'MySEO no se desinstalara porque has elegido mantener los ajustes en la base de datos.';
+$l['no_desinstalar2'] = 'Si vas a actualizar MySEO, utiliza la opcion "Desactivar".';
+$l['no_desinstalar_desactivar'] = 'Desactivar';
+$l['no_desinstalar_cambiar'] = 'Cambiar ajustes';
 
 $l['ajustes_seonpage'] = '[Plugin MySEO] Ajustes de SEO OnPage';
 $l['ajustes_seonpage_descripcion'] = 'Configura tus datos para el SEO On-Page.';
@@ -29,7 +35,7 @@ $l['eliminar_ajustes_descripcion'] = 'Bloquea la desinstalacion de MySEO. Sirve 
 $l['previsualizacion'] = 'Como se vera tu foro en Google:';
 $l['previsualizacion_descripcion_primera'] = 'Tienes que ajustar la configuracion y recargar la visualizacion para ver los datos cambiados.<br/>';
 $l['previsualizacion_descripcion_segunda'] = 'Pulsa <a href="../myseo.php" onclick="window.open(this.href, this.target, \'width=550,height=150\'); return false;"><b>aqui</b></a> para abrir la visualizacion en una peque<span style="text-transform:lowecase">&#209;</span>a ventana y utiliza el boton "Recargar" para ver los datos.<br/>';
-$l['previsualizacion_descripcion_tercera'] = 'Podras ver como al poner el titulo y descripcion demasiado grandes, estos se cortaran con unos puntos suspensivos.<br/>';
+$l['previsualizacion_descripcion_tercera'] = 'Podras ver como al poner el titulo y descripcion demasiado grandes, estos se cortaran con unos puntos suspesivos.<br/>';
 
 $l['minidescripcion'] = 'Escribe una mini-descripcion de tu foro.';
 $l['minidescripcion_descripcion'] = 'Escribe una minidescripcion de tu foro, con un maximo de 65 caracteres. Este limite se puede sobrepasar si el titulo del foro es corto (los dos juntos no deben exceder los 65 caracteres para una correcta visualizacion en los buscadores)';
@@ -68,7 +74,13 @@ $l['smPriority_descripcion'] = 'Cuando envias los sitemaps, esta bien decirle a 
 $l['extras_googleseo_enlace'] = 'Requiere los archivos extras de Google SEO.';
 
 $l['idAnalytics'] = 'ID de Analytics';
-$l['idAnalytics_descripcion'] = 'Escribe <a target="_blank" href=\"https://support.google.com/analytics/answer/1032385\">la ID de tu cuenta de Google Analytics</a> para poder utilizar su sistema en tu foro. Solo la ID:';
+$l['idAnalytics_descripcion'] = 'Escribe <a target="_blank" href=\"https://support.google.com/analytics/answer/1032385\">la ID de tu cuenta de Google Analytics</a> para poder utilizar su sistema en tu foro. <b>Solo la ID.</b>';
+
+$l['activarNofollow'] = '¿Activar rel="nofollow" para enlaces externos?';
+$l['activarNofollow_descripcion'] = 'Activa el <b>rel="nofollow"</b> para enlaces externos, evitando que posibles usuarios spammers quieran colocar enlaces hacia otros sitios web, pues los motores de busqueda no seguiran esos enlaces.<br/> Básicamente, nofollow hace que Google no incluya los enlaces especificados en el gráfico general de la Web.<br/> Que Google y otros buscadores te relacionen con URLs publicadas por tus usuarios sin tu permiso de contenido ilegal, moralmente dudoso (casinos, viagra, etc) puede ser perjudicial para tu SEO y tu foro.<br/> Sirve para que no afecte a tu foro contenido del que se desconfie, enlaces de pago (si Google los detecta sin nofollow te penalizara), posible spam publicado en tu foro, etc.<br/> <a target="_blank" href="https://support.google.com/webmasters/answer/96569?hl=es">Mas informacion</a>';
+
+$l['quitarNofollow'] = 'URLs permitidas';
+$l['quitarNofollow_descripcion'] = 'Si has activado el <i>rel="nofollow"</i>, seguramente querras permitir que algunas URLs en los mensajes si sean seguidas por los buscadores principales. Se ha descubierto que algunas URLs salientes (como pasa con enlaces a <i>Wikipedia</i>) pueden resultar beneficiosos beneficiosas para tu posicionamiento.<br/> <b>Una URL por linea, sin el http:// o https://.</b>';
 
 $l['myseosm'] = '[Plugin MySEO] Social Media e Integracion Social';
 $l['myseosm_descripcion'] = 'Configura tus datos para mejorar tu interaccion con las redes sociales.';
