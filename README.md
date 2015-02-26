@@ -5,6 +5,8 @@ The MySEO plugin for MyBB combines and installs everything you need to optimize 
 [English instructions](https://github.com/BitLiberal/MySEO/blob/master/README.en.md): How to install, uninstall and update the MySEO plugin.  
 [English documentation](https://github.com/BitLiberal/MySEO/wiki/En-construccion---Coming-soon#en-construccion): Plugin documentation (how to configure properly, why, etc).
 
+[Support on GitHub](https://github.com/BitLiberal/MySEO/issues)  
+[Support on MyBB.com](http://www.mybb-es.com/showthread.php?tid=166864)  
 
 # MySEO - SEO OnPage en tu foro MyBB
 El plugin MySEO para MyBB auna e instala todo lo necesario para optimizar el **SEO OnPage** de tu foro, mejorar tu posicion en los buscadores principales como Google, Bing, o Yahoo, y mejorar la **integracion social** con redes como Google+, Facebook o Twitter.
@@ -13,3 +15,5 @@ El plugin MySEO para MyBB auna e instala todo lo necesario para optimizar el **S
 [Instrucciones en español](https://github.com/BitLiberal/MySEO/blob/master/README.es.md): Como instalar, desinstalar, y actualizar el plugin MySEO.  
 [Documentacion en español](https://github.com/BitLiberal/MySEO/wiki/En-construccion---Coming-soon#en-construccion): Documentacion del plugin (como configurar correctamente, porque, etc).
 
+[Soporte en GitHub](https://github.com/BitLiberal/MySEO/issues)  
+[Soporte en MyBB-es.com](http://www.mybb-es.com/showthread.php?tid=12746)
