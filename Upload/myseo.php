@@ -3,7 +3,7 @@
 *
 *	MySEO v1.1 2015
 *	Plugin for MyBB by BitLiberal
-*	
+*
 */
 define("IN_MYBB", 1);
 require "./global.php";
