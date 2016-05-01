@@ -1,11 +1,10 @@
 <?php
 
-$l['aviso_instalacion_primero'] = '<b>Atention!</b> To install, follow the';
-$l['aviso_instalacion_segunda'] = 'steps of installation';
+$l['howToInstall'] = 'How to install';
 
-$l['descripcion_suite'] = 'Create and embed the settings for the OnPage SEO and social integration, <a target="_blank" href="https://github.com/BitLiberal/MySEO/">More Information</a> ';
+$l['pluginDescription'] = 'Better SEO for your forum. <a target="_blank" href="https://github.com/bit-dev/MySEO/">More information</a>.';
 
-$l['boton_ajustes'] = 'Settings';
+$l['settingsLink'] = 'Settings';
 
 $l['sistema_nofollow_activado'] = 'NoFollow System Activated';
 $l['sistema_nofollow_noactivado_primero'] = 'You have not installed the system NoFollow!';

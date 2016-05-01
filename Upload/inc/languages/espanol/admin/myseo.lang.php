@@ -1,11 +1,10 @@
 <?php
 
-$l['aviso_instalacion_primero'] = '<b>&iexcl;Atencion!</b> Para instalar, sigue los';
-$l['aviso_instalacion_segunda'] = 'pasos de instalacion';
+$l['howToInstall'] = 'Como instalar';
 
-$l['descripcion_suite'] = 'Crea e incrusta las configuraciones para el SEO OnPage y la integracion social, <a href="https://github.com/BitLiberal/MySEO/" target="_blank">Mas Informacion</a>';
+$l['pluginDescription'] = 'Una mejora para el SEO de tu foro. <a href="https://github.com/bit-dev/MySEO/" target="_blank">Mas información</a>.';
 
-$l['boton_ajustes'] = 'Ajustes';
+$l['settingsLink'] = 'Ajustes';
 
 $l['sistema_nofollow_activado'] = 'Sistema NoFollow Activado';
 $l['sistema_nofollow_noactivado_primero'] = '&iexcl;No has instalado el sistema de NoFollow!';
@@ -102,5 +101,3 @@ $l['pagina_Google_descripcion'] = 'Incluye la URL tu pagina de Google+ al foro.'
 
 $l['perfil_pinterest'] = 'Verificar pefil de Pinterest';
 $l['perfil_pinterest_descripcion'] = 'Verifica tu pagina para tu perfil de pinterest. Solo el codigo:';
-
-?>
