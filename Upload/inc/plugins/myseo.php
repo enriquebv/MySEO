@@ -11,23 +11,14 @@ $plugins->add_hook('member_profile_start', 'myseo_mp');
 $plugins->add_hook('global_start', 'myseo_ft');
 $plugins->add_hook('parse_message_end', 'myseo_nofollow');
 
-function myseo_lang()
-{
-    global $lang;
-    $lang->load('myseo');
-}
-
+global $core;
 require_once '/myseo/core.php';
-$core = new Core($mybb->settings['bblanguage']);
-
-global $mybb, $core;
+$core = new Core();
 
 function myseo_info()
 {
-
     global $mybb, $plugins, $lang, $db, $core;
-
-    myseo_lang();
+    $lang->load('myseo');
 
     return array(
         'name' => 'MySEO',
@@ -41,11 +32,9 @@ function myseo_info()
     );
 }
 
-
 function myseo_install()
 {
     global $mybb, $db, $lang, $core;
-
 
     $settings_group = array(
         'gid' => 'NULL',
@@ -56,7 +45,6 @@ function myseo_install()
         'isdefault' => 'no',
     );
     $gid = $db->insert_query('settinggroups', $settings_group);
-
 
     $setting = array(
         'sid' => 'NULL',
@@ -93,7 +81,6 @@ function myseo_install()
     );
     $db->insert_query('settings', $setting);
 
-
     $setting = array(
         'sid' => 'NULL',
         'name' => 'miniDescripcion',
@@ -104,7 +91,6 @@ function myseo_install()
         'gid' => intval($gid),
     );
     $db->insert_query('settings', $setting);
-
 
     $setting = array(
         'sid' => 'NULL',
@@ -117,7 +103,6 @@ function myseo_install()
     );
     $db->insert_query('settings', $setting);
 
-
     $setting = array(
         'sid' => 'NULL',
         'name' => 'palabrasClave',
@@ -128,7 +113,6 @@ function myseo_install()
         'gid' => intval($gid),
     );
     $db->insert_query('settings', $setting);
-
 
     $setting = array(
         'sid' => 'NULL',
@@ -141,7 +125,6 @@ function myseo_install()
     );
     $db->insert_query('settings', $setting);
 
-
     $setting = array(
         'sid' => 'NULL',
         'name' => 'bingYahoo_ver',
@@ -153,7 +136,6 @@ function myseo_install()
     );
     $db->insert_query('settings', $setting);
 
-
     $setting = array(
         'sid' => 'NULL',
         'name' => 'alexa_ver',
@@ -164,7 +146,6 @@ function myseo_install()
         'gid' => intval($gid),
     );
     $db->insert_query('settings', $setting);
-
 
     $setting = array(
         'sid' => 'NULL',
@@ -178,7 +159,6 @@ function myseo_install()
     );
     $db->insert_query('settings', $setting);
 
-
     $setting = array(
         'sid' => 'NULL',
         'name' => 'idAnalytics',
@@ -190,6 +170,37 @@ function myseo_install()
     );
     $db->insert_query('settings', $setting);
 
+    $setting = array(
+            'sid' => 'NULL',
+            'name' => 'smChangeFreq',
+            'title' => $lang->smChangeFreq,
+            'description' => $lang->smChangeFreq_descripcion,
+            'optionscode' => 'radio \nalways='.$lang->Siempre.' \nhourly='.$lang->Horario.' \ndaily='.$lang->Diario.' \nweekly='.$lang->Semanal.' \nmonthly='.$lang->Mensual.' \nyearly='.$lang->Anual.' \nnever='.$lang->Nunca.'',
+            'disporder' => '8',
+            'gid' => intval($gid),
+        );
+    $db->insert_query('settings', $setting);
+
+    $setting = array(
+            'sid' => 'NULL',
+            'name' => 'smPriority',
+            'title' => $lang->smPriority,
+            'description' => $lang->smPriority_descripcion,
+            'optionscode' => 'select \n0.9=90% \n0.8=80% \n0.7=70% \n0.6=60% \n0.5=50% \n0.4=40% \n0.3=30% \n0.2=20% \n0.1=10%',
+            'disporder' => '8',
+            'gid' => intval($gid),
+        );
+    $db->insert_query('settings', $setting);
+
+    $settings_group = array(
+        'gid' => 'NULL',
+        'name' => 'myseonf',
+        'title' => $lang->settingsMySEONoFollow,
+        'description' => $lang->settingsMySEONoFollowDescription,
+        'disporder' => '1',
+        'isdefault' => 'no',
+    );
+    $gid = $db->insert_query('settinggroups', $settings_group);
 
     $setting = array(
         'sid' => 'NULL',
@@ -198,7 +209,7 @@ function myseo_install()
         'description' => $lang->activarNofollow_descripcion,
         'optionscode' => 'onoff',
         'value' => 1,
-        'disporder' => '10',
+        'disporder' => '1',
         'gid' => intval($gid),
     );
     $db->insert_query('settings', $setting);
@@ -210,42 +221,10 @@ function myseo_install()
         'description' => $lang->quitarNofollow_descripcion,
         'optionscode' => 'textarea',
         'value' => 'wikipedia.org\ngoogle.com',
-        'disporder' => '11',
+        'disporder' => '2',
         'gid' => intval($gid),
     );
     $db->insert_query('settings', $setting);
-
-
-    if ($lang_docs == 'es') {
-        $instalar_extras_googleseo = '#instalar-extras-para-el-plugin-google-seo';
-    } else {
-        $instalar_extras_googleseo = '#install-extras-for-plugin-google-seo';
-    }
-
-
-    $setting = array(
-        'sid' => 'NULL',
-        'name' => 'smChangeFreq',
-        'title' => $lang->smChangeFreq,
-        'description' => '<a href=\"https://github.com/BitLiberal/MySEO/blob/master/README.'.$lang_docs.'.md'.$instalar_extras_googleseo.'\">'.$lang->extras_googleseo_enlace.'</a> '.$lang->smChangeFreq_descripcion,
-        'optionscode' => 'radio \nalways='.$lang->Siempre.' \nhourly='.$lang->Horario.' \ndaily='.$lang->Diario.' \nweekly='.$lang->Semanal.' \nmonthly='.$lang->Mensual.' \nyearly='.$lang->Anual.' \nnever='.$lang->Nunca.'',
-        'disporder' => '8',
-        'gid' => intval($gid),
-    );
-    $db->insert_query('settings', $setting);
-
-
-    $setting = array(
-        'sid' => 'NULL',
-        'name' => 'smPriority',
-        'title' => $lang->smPriority,
-        'description' => '<a href=\"https://github.com/BitLiberal/MySEO/blob/master/README.'.$lang_docs.'.md'.$instalar_extras_googleseo.'\">'.$lang->extras_googleseo_enlace.'</a> '.$lang->smPriority_descripcion,
-        'optionscode' => 'select \n0.9=90% \n0.8=80% \n0.7=70% \n0.6=60% \n0.5=50% \n0.4=40% \n0.3=30% \n0.2=20% \n0.1=10%',
-        'disporder' => '8',
-        'gid' => intval($gid),
-    );
-    $db->insert_query('settings', $setting);
-
 
     $settings_group = array(
         'gid' => 'NULL',
@@ -256,7 +235,6 @@ function myseo_install()
         'isdefault' => 'no',
     );
     $gid = $db->insert_query('settinggroups', $settings_group);
-
 
     $setting = array(
         'sid' => 'NULL',
@@ -269,7 +247,6 @@ function myseo_install()
     );
     $db->insert_query('settings', $setting);
 
-
     $setting = array(
         'sid' => 'NULL',
         'name' => 'urlLogoFB',
@@ -280,7 +257,6 @@ function myseo_install()
         'gid' => intval($gid),
     );
     $db->insert_query('settings', $setting);
-
 
     $setting = array(
         'sid' => 'NULL',
@@ -293,7 +269,6 @@ function myseo_install()
     );
     $db->insert_query('settings', $setting);
 
-
     $setting = array(
         'sid' => 'NULL',
         'name' => 'urlLogoTW',
@@ -304,7 +279,6 @@ function myseo_install()
         'gid' => intval($gid),
     );
     $db->insert_query('settings', $setting);
-
 
     $setting = array(
         'sid' => 'NULL',
@@ -317,7 +291,6 @@ function myseo_install()
     );
     $db->insert_query('settings', $setting);
 
-
     $setting = array(
         'sid' => 'NULL',
         'name' => 'perfil_pinterest',
@@ -329,9 +302,7 @@ function myseo_install()
     );
     $db->insert_query('settings', $setting);
 
-
     rebuild_settings();
-
 
     $insertarray = array(
         'title' => 'seo_forumdisplay',
@@ -344,7 +315,6 @@ function myseo_install()
         'dateline' => TIME_NOW,
     );
     $db->insert_query('templates', $insertarray);
-
 
     $insertarray = array(
         'title' => 'seo_index',
@@ -363,7 +333,6 @@ function myseo_install()
     );
     $db->insert_query('templates', $insertarray);
 
-
     $insertarray = array(
         'title' => 'seo_member',
         'template' => $db->escape_string('<meta content="noindex,nofollow" name="robots"/>'),
@@ -371,7 +340,6 @@ function myseo_install()
         'dateline' => TIME_NOW,
     );
     $db->insert_query('templates', $insertarray);
-
 
     $insertarray = array(
         'title' => 'seo_footer',
@@ -391,7 +359,6 @@ function myseo_install()
     $db->insert_query('templates', $insertarray);
 }
 
-
 function myseo_is_installed()
 {
     global $db;
@@ -403,13 +370,11 @@ function myseo_is_installed()
     return false;
 }
 
-
 function myseo_activate()
 {
     global $db;
 
     include MYBB_ROOT.'/inc/adminfunctions_templates.php';
-
 
     find_replace_templatesets('headerinclude', '#'.preg_quote('{$stylesheets}').'#i', "{\$stylesheets}\n\n<!-- Site optimized with MySEO -->\n<meta name=\"keywords\" content=\"{\$mybb->settings['palabrasClave']}\"/>\n<meta content=\"IE=edge,chrome=1\" http-equiv=\"X-UA-Compatible\"/>\n<meta content=\"{\$mybb->settings['bingYahoo_ver']}\" name=\"msvalidate.01\"/>\n<meta name=\"google-site-verification\" content=\"{\$mybb->settings['google_ver']}\" />\n<meta name=\"twitter:card\" content=\"summary\">\n<meta name=\"twitter:site\" content=\"{\$mybb->settings['sitioTwitter']}\">\n<link rel=\"publisher\" href=\"{\$mybb->settings['pagina_Google']}\"/>\n<meta property=\"article:publisher\" content=\"{\$mybb->settings['pagina_Facebook']}\" />\n<meta name=\"alexaVerifyID\" content=\"{\$mybb->settings['alexa_ver']}\"/>\n<meta name=\"p:domain_verify\" content=\"{\$mybb->settings['perfil_pinterest']}\"/>\n<!-- Site optimized with MySEO -->\n\n");
     find_replace_templatesets('index', '#'.preg_quote('<head>').'#i', "<head>\n\n<!-- Site optimized with MySEO -->\n{\$seo_index}\n<!-- Site optimized with MySEO -->\n\n");
@@ -418,7 +383,6 @@ function myseo_activate()
     find_replace_templatesets('showthread', '#'.preg_quote('<head>').'#i', "<head>\n\n<!-- Site optimized with MySEO -->\n<title>{\$thread['subject']} | {\$mybb->settings['bbname']}</title>\n<meta content=\"index,follow\" name=\"robots\"/>\n<meta property=\"og:type\" content=\"article\"/>\n<meta property=\"og:title\" content=\"{\$thread['subject']} | {\$mybb->settings['bbname']}\" />\n<meta name=\"twitter:title\" content=\"{\$thread['subject']} | {\$mybb->settings['bbname']}\">\n<!-- Site optimized with MySEO -->\n\n");
     find_replace_templatesets('footer', '#'.preg_quote('{$task_image}').'#i', "{\$task_image}\n\n<!-- Site optimized with MySEO -->\n{\$seo_footer}<!-- Site optimized with MySEO -->\n\n");
 }
-
 
 function myseo_deactivate()
 {
@@ -433,28 +397,23 @@ function myseo_deactivate()
     find_replace_templatesets('footer', '#'.preg_quote("\n\n<!-- Site optimized with MySEO -->\n{\$seo_footer}<!-- Site optimized with MySEO -->\n\n").'#i', '', 0);
 }
 
-
 function myseo_uninstall()
 {
     global $db, $mybb;
 
+    $db->delete_query('settings', "name IN ('urlLogoTW', 'smPriority', 'smChangeFreq', 'IndexFollow_usuarios', 'miniDescripcion', 'eliminar_ajustes', 'meta_descripcion','palabrasClave','urlLogoFB','sitioTwitter','google_ver','bingYahoo_ver','pagina_Google','pagina_Facebook','eleccionAutor','alexa_ver','perfil_pinterest','previsualizacion','idAnalytics')");
 
-        $db->delete_query('settings', "name IN ('urlLogoTW', 'smPriority', 'smChangeFreq', 'IndexFollow_usuarios', 'miniDescripcion', 'eliminar_ajustes', 'meta_descripcion','palabrasClave','urlLogoFB','sitioTwitter','google_ver','bingYahoo_ver','pagina_Google','pagina_Facebook','eleccionAutor','alexa_ver','perfil_pinterest','previsualizacion','idAnalytics')");
-
-
-        $db->delete_query('settinggroups', "name = 'myseo'");
+    $db->delete_query('settinggroups', "name = 'myseo'");
     $db->delete_query('settinggroups', "name = 'myseosm'");
+    $db->delete_query('settinggroups', "name = 'myseonf'");
 
-
-        $db->delete_query('templates', "title = 'seo_forumdisplay'");
+    $db->delete_query('templates', "title = 'seo_forumdisplay'");
     $db->delete_query('templates', "title = 'seo_index'");
     $db->delete_query('templates', "title = 'seo_member'");
     $db->delete_query('templates', "title = 'seo_footer'");
 
-
-        rebuild_settings();
+    rebuild_settings();
 }
-
 
 function myseo_fd()
 {
@@ -463,14 +422,12 @@ function myseo_fd()
     eval('$seo_forumdisplay = "'.$templates->get('seo_forumdisplay').'";');
 }
 
-
 function myseo_i()
 {
     global $db, $mybb, $templates, $seo_index;
 
     eval('$seo_index = "'.$templates->get('seo_index').'";');
 }
-
 
 function myseo_mp()
 {
@@ -480,7 +437,6 @@ function myseo_mp()
     }
 }
 
-
 function myseo_ft()
 {
     global $db, $mybb, $templates, $seo_footer;
@@ -489,7 +445,6 @@ function myseo_ft()
     }
 }
 
-//Sistema NoFollow
 function myseo_nofollow($message)
 {
     global $mybb;

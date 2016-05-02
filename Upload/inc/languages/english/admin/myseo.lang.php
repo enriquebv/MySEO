@@ -21,6 +21,9 @@ $l['Cafe'] = 'Invite us to a coffee for our hard work!';
 $l['ajustes_seonpage'] = '[Plugin MySEO] Settings of SEO OnPage';
 $l['ajustes_seonpage_descripcion'] = 'Configure your data for On-Page SEO.';
 
+$l['settingsMySEONoFollow'] = '[Plugin MySEO] No Follow System';
+$l['settingsMySEONoFollowDescription'] = 'Settings to insert rel="nofollow" in external links.';
+
 $l['previsualizacion'] = 'How your forum will look in Google:';
 $l['previsualizacion_descripcion_primera'] = 'You have to adjust settings and reload the visualization to see the changed data.<br/>';
 $l['previsualizacion_descripcion_segunda'] = 'Click <a href="../myseo.php" onclick="window.open(this.href, this.target, \'width=550,height=150\'); return false;"><b>here</b></a> to open the visualization in a small window and make click in "Refresh" button to see the data.<br/>';
@@ -59,8 +62,6 @@ $l['Nunca'] = 'Never';
 
 $l['smPriority'] = 'Priority on sitemaps.';
 $l['smPriority_descripcion'] = 'When you send sitemaps, okay tell search engines that URL are more important. <br/> This is important to not index all the URLs in a generic way, and to give more importance to other URLs (like the main URL, the portal, etc). We recommend never put a higher value than 80%.';
-
-$l['extras_googleseo_enlace'] = 'Requires extra files of Google SEO plugin.';
 
 $l['idAnalytics'] = 'Analytics ID';
 $l['idAnalytics_descripcion'] = 'Paste <a target="_blank" href=\"https://support.google.com/analytics/answer/1032385\">the ID of your Google Analytics</a> to use their system in your forum. <b>Only the ID</b>.';

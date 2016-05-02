@@ -28,6 +28,9 @@ $l['no_desinstalar_cambiar'] = 'Cambiar ajustes';
 $l['ajustes_seonpage'] = '[Plugin MySEO] Ajustes de SEO OnPage';
 $l['ajustes_seonpage_descripcion'] = 'Configura tus datos para el SEO On-Page.';
 
+$l['settingsMySEONoFollow'] = '[Plugin MySEO] Sistema No Follow';
+$l['settingsMySEONoFollowDescription'] = 'Ajustes para insertar rel="nofollow" a los enlaces externos.';
+
 $l['eliminar_ajustes'] = 'Eliminar ajustes al desinstalar MySEO?';
 $l['eliminar_ajustes_descripcion'] = 'Bloquea la desinstalacion de MySEO. Sirve para cuando vayas a actualizar y/o reinstalar MySEO y no quieres reconfigurar todos los datos. Elige "No" para evitar perder los datos al desinstalar.';
 
@@ -69,8 +72,6 @@ $l['Nunca'] = 'Nunca';
 
 $l['smPriority'] = 'Prioridad en los sitemaps.';
 $l['smPriority_descripcion'] = 'Cuando envias los sitemaps, esta bien decirle a los buscadores que URL son mas importantes.<br/>Esto es importante para que no se indexen todas las URL de forma generica, y para darle mas importancia a otras URL, (como la URL principal, la del portal, etc). Se recomiendan poner un valor nunca mayor al 80%.';
-
-$l['extras_googleseo_enlace'] = 'Requiere los archivos extras de Google SEO.';
 
 $l['idAnalytics'] = 'ID de Analytics';
 $l['idAnalytics_descripcion'] = 'Escribe <a target="_blank" href=\"https://support.google.com/analytics/answer/1032385\">la ID de tu cuenta de Google Analytics</a> para poder utilizar su sistema en tu foro. <b>Solo la ID.</b>';
