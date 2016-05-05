@@ -85,7 +85,7 @@ function myseo_uninstall()
 {
     global $db, $mybb;
 
-    $db->delete_query('settings', "name IN ('sitemapPriority', 'sitemapChangeFrequency', 'usersFollow', 'slogan', 'metaDescription', 'palabrasClave','urlLogoSM', 'twitterUser','googleVerification', 'bingYahooVerification', 'googlePage', 'facebookPage', 'alexaVerification', 'pinterestProfile', 'idAnalytics')");
+    $db->delete_query('settings', "name IN ('sitemapPriority', 'sitemapChangeFrequency', 'usersFollow', 'slogan', 'metaDescription', 'keywords', 'urlLogoSM', 'twitterUser','googleVerification', 'bingYahooVerification', 'googlePage', 'facebookPage', 'alexaVerification', 'pinterestProfile', 'idAnalytics')");
 
     $db->delete_query('settinggroups', "name = 'myseo'");
     $db->delete_query('settinggroups', "name = 'myseosm'");
