@@ -5,10 +5,10 @@ if (!defined('IN_MYBB')) {
 }
 
 global $plugins;
-$plugins->add_hook('forumdisplay_start', 'myseo_fd');
-$plugins->add_hook('index_start', 'myseo_i');
-$plugins->add_hook('member_profile_start', 'myseo_mp');
-$plugins->add_hook('global_start', 'myseo_ft');
+$plugins->add_hook('forumdisplay_start', 'myseo_forumdisplay');
+$plugins->add_hook('index_start', 'myseo_index');
+$plugins->add_hook('member_profile_start', 'myseo_memberprofile');
+$plugins->add_hook('global_start', 'myseo_global');
 $plugins->add_hook('parse_message_end', 'myseo_nofollow');
 
 global $core;
@@ -17,7 +17,8 @@ $core = new Core();
 
 function myseo_info()
 {
-    global $mybb, $plugins, $lang, $db, $core;
+    global $lang, $core;
+
     $lang->load('myseo');
 
     return array(
@@ -34,24 +35,18 @@ function myseo_info()
 
 function myseo_install()
 {
-    global $mybb, $db, $lang, $core;
+    global $core;
 
     $core->installSettings();
-
     rebuild_settings();
-
     $core->installTemplates();
 }
 
 function myseo_is_installed()
 {
-    global $db;
-    $query = $db->simple_select('settinggroups', '*', "name='myseo'");
-    if ($db->num_rows($query)) {
-        return true;
-    }
+    global $core;
 
-    return false;
+    return $core->isInstalled();
 }
 
 function myseo_activate()
@@ -83,37 +78,25 @@ function myseo_deactivate()
 
 function myseo_uninstall()
 {
-    global $db, $mybb;
-
-    $db->delete_query('settings', "name IN ('sitemapPriority', 'sitemapChangeFrequency', 'usersFollow', 'slogan', 'metaDescription', 'keywords', 'urlLogoSM', 'twitterUser','googleVerification', 'bingYahooVerification', 'googlePage', 'facebookPage', 'alexaVerification', 'pinterestProfile', 'idAnalytics')");
-
-    $db->delete_query('settinggroups', "name = 'myseo'");
-    $db->delete_query('settinggroups', "name = 'myseosm'");
-    $db->delete_query('settinggroups', "name = 'myseonf'");
-
-    $db->delete_query('templates', "title = 'seo_forumdisplay'");
-    $db->delete_query('templates', "title = 'seo_index'");
-    $db->delete_query('templates', "title = 'seo_member'");
-    $db->delete_query('templates', "title = 'seo_footer'");
-
-    rebuild_settings();
+    global $core;
+    $core->uninstallPlugin();
 }
 
-function myseo_fd()
+function myseo_forumdisplay()
 {
     global $db, $mybb, $templates, $seo_forumdisplay;
 
     eval('$seo_forumdisplay = "'.$templates->get('seo_forumdisplay').'";');
 }
 
-function myseo_i()
+function myseo_index()
 {
     global $db, $mybb, $templates, $seo_index;
 
     eval('$seo_index = "'.$templates->get('seo_index').'";');
 }
 
-function myseo_mp()
+function myseo_memberprofile()
 {
     global $db, $mybb, $templates, $seo_member;
     if ($mybb->settings['IndexFollow_usuarios'] == 0) {
@@ -121,7 +104,7 @@ function myseo_mp()
     }
 }
 
-function myseo_ft()
+function myseo_global()
 {
     global $db, $mybb, $templates, $seo_footer;
     if (strlen($mybb->settings['idAnalytics']) != 0) {

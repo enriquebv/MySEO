@@ -5,6 +5,7 @@ $l['howToInstall'] = 'How to install';
 $l['pluginDescription'] = 'Better SEO for your forum. <a target="_blank" href="https://github.com/bit-dev/MySEO/">More information</a>.';
 
 $l['settingsLink'] = 'Settings';
+$l['templatesLink'] = 'MySEO Templates';
 
 $l['sistema_nofollow_activado'] = 'NoFollow System Activated';
 $l['sistema_nofollow_noactivado_primero'] = 'You have not installed the system NoFollow!';

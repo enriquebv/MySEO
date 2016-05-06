@@ -22,8 +22,10 @@ class Core
 
         $this->description = $lang->pluginDescription.'<br/>';
 
-        $this->description .= '<a target="_blank" href="https://github.com/bit-dev/MySEO/">'.$lang->howToInstall.'</a></span>';
-        $this->description .= ' | <a target="_blank" href="index.php?module=config&action=change&search=myseo">'.$lang->settingsLink.'</a> |';
+
+        $this->description .= '<a style="font-weight:bold;" target="_blank" href="index.php?module=config&action=change&search=myseo">'.$lang->settingsLink.'</a>';
+        $this->description .= ' | <a target="_blank" href="index.php?module=style-templates&sid=-1">'.$lang->templatesLink.'</a>';
+        $this->description .= ' | <a target="_blank" href="https://github.com/bit-dev/MySEO/">'.$lang->howToInstall.'</a></span> |';
 
         $this->description .= '<form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_blank" style="display: inline;">
             <input type="hidden" name="cmd" value="_s-xclick">
@@ -45,9 +47,9 @@ class Core
             'title' => 'seo_forumdisplay',
             'template' => $db->escape_string("<meta content=\"index,follow\" name=\"robots\"/>
     <meta property=\"og:type\" content=\"forum\"/>
-    <meta property=\"og:image\" content=\"{\$mybb->settings['urlLogoFB']}\"/>
-    <meta name=\"twitter:site\" content=\"{\$mybb->settings['sitioTwitter']}\">
-    <meta name=\"twitter:image\" content=\"{\$mybb->settings['urlLogoTW']}\">"),
+    <meta property=\"og:image\" content=\"{\$mybb->settings['urlLogoSM']}\"/>
+    <meta name=\"twitter:site\" content=\"{\$mybb->settings['twitterUser']}\">
+    <meta name=\"twitter:image\" content=\"{\$mybb->settings['urlLogoSM']}\">"),
             'sid' => -1,
             'dateline' => TIME_NOW,
         );
@@ -55,16 +57,16 @@ class Core
 
         $insertarray = array(
             'title' => 'seo_index',
-            'template' => $db->escape_string("<title>{\$mybb->settings['bbname']} | {\$mybb->settings['miniDescripcion']}</title>
-    <meta name=\"description\" content=\"{\$mybb->settings['meta_descripcion']}\"/>
+            'template' => $db->escape_string("<title>{\$mybb->settings['bbname']} | {\$mybb->settings['slogan']}</title>
+    <meta name=\"description\" content=\"{\$mybb->settings['metaDescription']}\"/>
     <meta content=\"index,follow\" name=\"robots\"/>
     <meta property=\"og:type\" content=\"forum\"/>
-    <meta property=\"og:description\" content=\"{\$mybb->settings['meta_descripcion']}\"/>
-    <meta property='og:image' content=\"{\$mybb->settings['urlLogoFB']}\"/>
-    <meta property=\"og:title\" content=\"{\$mybb->settings['bbname']} | {\$mybb->settings['miniDescripcion']}\" />
-    <meta name=\"twitter:title\" content=\"{\$mybb->settings['bbname']} | {\$mybb->settings['miniDescripcion']}\">
-    <meta name=\"twitter:description\" content=\"{\$mybb->settings['meta_descripcion']}\">
-    <meta name=\"twitter:image\" content=\"{\$mybb->settings['urlLogoTW']}\">"),
+    <meta property=\"og:description\" content=\"{\$mybb->settings['metaDescription']}\"/>
+    <meta property='og:image' content=\"{\$mybb->settings['urlLogoSM']}\"/>
+    <meta property=\"og:title\" content=\"{\$mybb->settings['bbname']} | {\$mybb->settings['slogan']}\" />
+    <meta name=\"twitter:title\" content=\"{\$mybb->settings['bbname']} | {\$mybb->settings['slogan']}\">
+    <meta name=\"twitter:description\" content=\"{\$mybb->settings['metaDescription']}\">
+    <meta name=\"twitter:image\" content=\"{\$mybb->settings['urlLogoSM']}\">"),
             'sid' => -1,
             'dateline' => TIME_NOW,
         );
@@ -321,5 +323,32 @@ class Core
             'gid' => intval($gid),
         );
         $db->insert_query('settings', $setting);
+    }
+
+    public function isInstalled(){
+        global $db;
+
+        if ($db->num_rows($db->simple_select('settinggroups', '*', "name='myseo'"))) {
+            return true;
+        }else{
+            return false;
+        }
+    }
+
+    public function uninstallPlugin(){
+        global $db;
+
+        $db->delete_query('settings', "name IN ('sitemapPriority', 'sitemapChangeFrequency', 'usersFollow', 'slogan', 'metaDescription', 'keywords', 'urlLogoSM', 'twitterUser','googleVerification', 'bingYahooVerification', 'googlePage', 'facebookPage', 'alexaVerification', 'pinterestProfile', 'idAnalytics')");
+
+        $db->delete_query('settinggroups', "name = 'myseo'");
+        $db->delete_query('settinggroups', "name = 'myseosm'");
+        $db->delete_query('settinggroups', "name = 'myseonf'");
+
+        $db->delete_query('templates', "title = 'seo_forumdisplay'");
+        $db->delete_query('templates', "title = 'seo_index'");
+        $db->delete_query('templates', "title = 'seo_member'");
+        $db->delete_query('templates', "title = 'seo_footer'");
+
+        rebuild_settings();
     }
 }
