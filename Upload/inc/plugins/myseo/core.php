@@ -22,7 +22,6 @@ class Core
 
         $this->description = $lang->pluginDescription.'<br/>';
 
-
         $this->description .= '<a style="font-weight:bold;" target="_blank" href="index.php?module=config&action=change&search=myseo">'.$lang->settingsLink.'</a>';
         $this->description .= ' | <a target="_blank" href="index.php?module=style-templates&sid=-1">'.$lang->templatesLink.'</a>';
         $this->description .= ' | <a target="_blank" href="https://github.com/bit-dev/MySEO/">'.$lang->howToInstall.'</a></span> |';
@@ -40,7 +39,8 @@ class Core
         return $this->description;
     }
 
-    public function installTemplates(){
+    public function installTemplates()
+    {
         global $db, $lang;
 
         $insertarray = array(
@@ -96,9 +96,23 @@ class Core
             'dateline' => TIME_NOW,
         );
         $db->insert_query('templates', $insertarray);
+
+        $insertarray = array(
+            'title' => 'seo_thread',
+            'template' => $db->escape_string("<title>{\$thread['subject']} | {\$mybb->settings['bbname']}</title>
+            <meta name=\"description\" content=\"{\$myseoMetaDescription}\">
+            <meta content=\"index,follow\" name=\"robots\"/>
+            <meta property=\"og:type\" content=\"article\"/>
+            <meta property=\"og:title\" content=\"{\$thread['subject']} | {\$mybb->settings['bbname']}\" />
+            <meta name=\"twitter:title\" content=\"{\$thread['subject']} | {\$mybb->settings['bbname']}\">"),
+            'sid' => -1,
+            'dateline' => TIME_NOW,
+        );
+        $db->insert_query('templates', $insertarray);
     }
 
-    public function installSettings(){
+    public function installSettings()
+    {
         global $db, $lang;
 
         // General SEO OnPage.
@@ -325,17 +339,19 @@ class Core
         $db->insert_query('settings', $setting);
     }
 
-    public function isInstalled(){
+    public function isInstalled()
+    {
         global $db;
 
         if ($db->num_rows($db->simple_select('settinggroups', '*', "name='myseo'"))) {
             return true;
-        }else{
+        } else {
             return false;
         }
     }
 
-    public function uninstallPlugin(){
+    public function uninstallPlugin()
+    {
         global $db;
 
         $db->delete_query('settings', "name IN ('sitemapPriority', 'sitemapChangeFrequency', 'usersFollow', 'slogan', 'metaDescription', 'keywords', 'urlLogoSM', 'twitterUser','googleVerification', 'bingYahooVerification', 'googlePage', 'facebookPage', 'alexaVerification', 'pinterestProfile', 'idAnalytics')");
@@ -348,7 +364,39 @@ class Core
         $db->delete_query('templates', "title = 'seo_index'");
         $db->delete_query('templates', "title = 'seo_member'");
         $db->delete_query('templates', "title = 'seo_footer'");
+        $db->delete_query('templates', "title = 'seo_thread'");
 
         rebuild_settings();
+    }
+
+    public function getMetaDescription($tid)
+    {
+        global $db;
+
+        $query = $db->simple_select('threads', '*', "tid='".$tid."'");
+        $query = $db->fetch_array($query);
+        $query = $db->simple_select('posts', '*', "pid='".$query['firstpost']."'");
+        $query = $db->fetch_array($query);
+        $metaDescription = $query['message'];
+        unset($query);
+
+        return $this->toPlainText($metaDescription);
+    }
+
+    private function toPlainText($string)
+    {
+        $string = preg_replace(
+            '|[[\/\!]*?[^\[\]]*?]|si',
+            '',
+            $string
+        );
+
+        $string = preg_replace(
+            '/\b(https?|ftp|file):\/\/[-A-Z0-9+&@#\/%?=~_|$!:,.;]*[A-Z0-9+&@#\/%=~_|$]/i',
+            '',
+            $string
+        );
+
+        return str_replace("\n", '', $string);
     }
 }
