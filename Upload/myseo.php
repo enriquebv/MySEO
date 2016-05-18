@@ -25,7 +25,6 @@ function dieError()
 function sitemapThreads()
 {
     global $core;
-    header('Content-type: application/xml');
 
     if (isset($_GET['page']) && is_numeric($_GET['page'])) {
         $page = $_GET['page'];
@@ -34,6 +33,8 @@ function sitemapThreads()
     }elseif (is_numeric($_GET['page']) == false) {
         dieError();
     }
+
+    header('Content-type: application/xml');
     $sitemap = '<?xml version="1.0" encoding="UTF-8"?>'."\n";
     $sitemap .= '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">'."\n";
     $sitemap .= $core->generateSitemapThreads($page);
