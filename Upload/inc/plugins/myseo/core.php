@@ -399,4 +399,34 @@ class Core
 
         return str_replace("\n", '', $string);
     }
+
+    public function generateSitemapThreads($page)
+    {
+        global $db, $mybb;
+        $schema = '<url>'."\n".'  <loc>[URL_ITEM]</loc>'."\n".'  <lastmod>[DATELINE_ITEM]</lastmod>'."\n".'  <changefreq>[CHANGEFREQ_ITEM]</changefreq>'."\n".'  <priority>[PRIORITY_ITEM]</priority>'."\n".'</url>'."\n";
+
+        $options = array();
+        $options['order_by'] = 'lastpost';
+        $options['order_dir'] = 'DESC';
+        $options['limit_start'] = (25000 * $page) - 25000;
+        $options['limit'] = $page * 25000;
+        $query = $db->simple_select('threads', '*', '', $options);
+
+        (!$mybb->settings['sitemapChangeFrequency']) ? $changefreq = 'daily' : $changefreq = $mybb->settings['sitemapChangeFrequency'];
+        (!$mybb->settings['sitemapPriority']) ? $priority = 0.8 : $priority = $mybb->settings['sitemapPriority'];
+
+        while ($thread = $db->fetch_array($query)) {
+            $sitemapItem = str_replace('[URL_ITEM]', $thread['subject'], $schema);
+            $sitemapItem = str_replace('[DATELINE_ITEM]', date(DATE_W3C, $thread['lastpost']), $sitemapItem);
+            $sitemapItem = str_replace('[CHANGEFREQ_ITEM]', $changefreq, $sitemapItem);
+            $sitemapItem = str_replace('[PRIORITY_ITEM]', $priority, $sitemapItem);
+
+            $threads .= $sitemapItem;
+            unset($sitemapItem);
+        }
+
+        unset($query);
+
+        return $threads;
+    }
 }
