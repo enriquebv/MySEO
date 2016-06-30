@@ -13,7 +13,7 @@ $plugins->add_hook('parse_message_end', 'myseo_nofollow');
 $plugins->add_hook('showthread_end', 'myseo_showthread');
 
 global $core;
-require_once '/myseo/core.php';
+require_once 'myseo/core.php';
 $core = new Core();
 
 function myseo_info()
