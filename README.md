@@ -1,4 +1,4 @@
-# MySEO - SEO OnPage in your MyBB forum.
+# [DEPRECATED] MySEO - SEO OnPage in your MyBB forum.
 The MySEO plugin for MyBB combines and installs everything you need to optimize your **SEO OnPage** in your forum, improve your position in major search engines like Google, Bing, or Yahoo, and improve **social media integration** with social networks like Google+, Facebook or Twitter.
 
 **[Last release changelog & download](https://github.com/BitLiberal/MySEO/releases/latest)**  
